@@ -5,6 +5,7 @@ build/
 classes/
 .idea
 *.iml
+node_modules/
 *.ipr
 *.iws
 .project
