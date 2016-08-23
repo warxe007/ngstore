@@ -1,10 +1,10 @@
-
-
 // Added by the Spring Security Core plugin:
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'ngstore.security.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'ngstore.security.UserRole'
 grails.plugin.springsecurity.authority.className = 'ngstore.security.Role'
+//Start Customs
 grails.plugin.springsecurity.logout.postOnly = false
+//Finish Customs
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/',               access: ['permitAll']],
 	[pattern: '/error',          access: ['permitAll']],

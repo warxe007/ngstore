@@ -30,7 +30,9 @@ function routes($stateProvider, $urlRouterProvider, $locationProvider) {
             abstract:true,
             url: '/',
             resolve: {
-// Put anything that is used by each page/route here in the resolve
+                loggedUser: function(loginService) {
+                    return loginService.getLoggedUser();
+                }
             },
             views: {
                 'header': {

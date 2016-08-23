@@ -4,6 +4,8 @@ angular
     .module("ngstore.layout")
     .controller("HeaderController", HeaderController);
 
-function HeaderController() {
-    var vm = this;
+function HeaderController(loggedUser) {
+    var headerController = this;
+
+    headerController.loggedUser = loggedUser;
 }

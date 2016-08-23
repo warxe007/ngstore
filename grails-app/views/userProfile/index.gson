@@ -1,0 +1,8 @@
+import ngstore.UserProfile
+
+model {
+	Iterable<UserProfile> userProfileList
+}
+
+json tmpl.userProfile(userProfileList ?: [])
+

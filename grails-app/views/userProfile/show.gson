@@ -1,0 +1,7 @@
+import ngstore.UserProfile
+
+model {
+	UserProfile userProfile
+}
+
+json tmpl.userProfile(userProfile)
