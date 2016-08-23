@@ -5,12 +5,17 @@ import ngstore.security.UserRole
 class BootStrap {
 
     def init = { servletContext ->
+        def superAdminRole = new Role(authority: 'ROLE_SUPER_ADMIN').save()
         def adminRole = new Role(authority: 'ROLE_ADMIN').save()
         def userRole = new Role(authority: 'ROLE_USER').save()
 
-        def testUser = new User(username: 'test', password: 'test').save()
+        def testSuperAdminUser = new User(username: 'superadminuser', password: 'superadminuser').save()
+        def testAdminUser = new User(username: 'adminuser', password: 'adminuser').save()
+        def testUser = new User(username: 'user', password: 'user').save()
 
-        UserRole.create testUser, adminRole
+        UserRole.create testSuperAdminUser, superAdminRole
+        UserRole.create testAdminUser, adminRole
+        UserRole.create testUser, userRole
 
         UserRole.withSession {
             it.flush()

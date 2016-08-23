@@ -3,6 +3,8 @@
 //= require /angular/angular-resource
 //= require_self
 //= require_tree services
+//= require_tree controllers
+//= require_tree templates
 
 angular.module("ngstore.core", ['ngResource'])
     .constant("contextPath", window.contextPath)

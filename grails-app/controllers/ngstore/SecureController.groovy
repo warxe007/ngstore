@@ -7,7 +7,7 @@ import grails.plugin.springsecurity.annotation.Secured
 
 class SecureController {
 
-    @Secured('ROLE_ADMIN')
+    @Secured('ROLE_SUPER_ADMIN')
     def index() {
         render 'Secure access only'
     }

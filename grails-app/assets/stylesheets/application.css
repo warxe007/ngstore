@@ -8,8 +8,7 @@
 * compiled file, but it's generally better to create a new file per style scope.
 *
 *= require /bootstrap/bootstrap
-*= require grails
+*= require /angularjs-toaster/toaster
 *= require main
-*= require mobile
 *= require_self
 */
