@@ -3,6 +3,8 @@
 //= require /angular/angular-ui-router
 //= require /jquery/jquery
 //= require /bootstrap/bootstrap
+//= require /underscore/underscore
+//= require /angular/angular-underscore-module
 //= require /angular/angular-animate
 //= require /angularjs-toaster/toaster
 //= require /angular/ui-bootstrap-tpls
@@ -19,5 +21,6 @@ angular.module("ngstore", [
     "ui.router",
     'ui.bootstrap',
     'ngAnimate',
-    'toaster'
+    'toaster',
+    'underscore'
 ]);

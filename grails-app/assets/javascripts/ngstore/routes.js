@@ -61,6 +61,7 @@ function routes($stateProvider, $urlRouterProvider, $locationProvider) {
             }
         })
         .state('error', {
+            url: 'login/auth?login_error=1',
             views: {
                 'content': {
                     templateUrl: '/ngstore/layout/error.html',
