@@ -1,0 +1,8 @@
+import ngstore.Menu
+
+model {
+	Iterable<Menu> menuList
+}
+
+json tmpl.menu(menuList ?: [])
+

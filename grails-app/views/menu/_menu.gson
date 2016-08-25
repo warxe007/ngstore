@@ -1,0 +1,7 @@
+import ngstore.Menu
+
+model {
+	Menu menu
+}
+
+json g.render(menu)

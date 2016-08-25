@@ -31,7 +31,6 @@ function routes($stateProvider, $urlRouterProvider, $locationProvider) {
             url: '/',
             resolve: {
                 loggedUser: function(loginService) {
-                    console.log('in abstract');
                     return loginService.getLoggedUser();
                 }
             },
@@ -53,11 +52,6 @@ function routes($stateProvider, $urlRouterProvider, $locationProvider) {
         })
         .state('app.home', {
             url: 'home',
-            resolve: {
-                loggedUser: function() {
-                    console.log('in home');
-                }
-            },
             views: {
                 'content@': {
                     templateUrl: '/ngstore/core/home.html',
@@ -69,8 +63,8 @@ function routes($stateProvider, $urlRouterProvider, $locationProvider) {
         .state('app.menu', {
             url: 'menu',
             resolve: {
-                productResult : function (productService) {
-                    return productService.getProducts();
+                menuResult : function (menuService) {
+                    return menuService.getMenu();
                 }
             },
             views: {

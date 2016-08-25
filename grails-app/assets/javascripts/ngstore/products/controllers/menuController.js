@@ -7,8 +7,8 @@ angular
     .module('ngstore.products')
     .controller('menuController', menuController);
 
-function menuController(productResult) {
+function menuController(menuResult) {
     var menuCtrl = this;
 
-    menuCtrl.productResult = productResult;
+    menuCtrl.menuResult = menuResult;
 }
