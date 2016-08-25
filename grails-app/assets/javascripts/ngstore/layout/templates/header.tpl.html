@@ -16,16 +16,16 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Order today<span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Menu</a></li>
+                <li><a ui-sref="app.menu">Menu</a></li>
                 <li ng-if="HC.loggedUser.isSuperAdmin" class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">Manage <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Products</a></li>
-                        <li><a href="#">Discounts</a></li>
-                        <li><a href="#">Statistics</a></li>
+                        <li><a ui-sref="app.productList">Manage Products</a></li>
+                        <li><a >Discounts</a></li>
+                        <li><a >Statistics</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Manage users</a></li>
+                        <li><a >Manage users</a></li>
                     </ul>
                 </li>
             </ul>
@@ -38,19 +38,19 @@
             <ul class="nav navbar-nav navbar-right">
                 <div ng-if="HC.loggedUser.firstName">
                     <p class="navbar-text">Welcome Back <b>{{HC.loggedUser.firstName}}!</b></p>
-                    <a href="#" ng-click="HC.logout()" class="navbar-logout">Logout</a>
+                    <a ng-click="HC.logout()" class="navbar-logout">Logout</a>
                 </div>
                     <li ng-if="!HC.loggedUser.firstName"><p class="navbar-text">Already have an account?</p></li>
                     <li ng-if="!HC.loggedUser.firstName" class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
                         <ul id="login-dp" class="dropdown-menu">
                             <li>
                                 <div class="row">
                                     <div class="col-md-12">
                                         Login via
                                         <div class="social-buttons">
-                                            <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
-                                            <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+                                            <a class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+                                            <a class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
                                         </div>
                                         or
                                         <form class="form" role="form" name="loginForm" accept-charset="UTF-8" id="login-nav">
@@ -61,7 +61,8 @@
                                             <div class="form-group">
                                                 <label class="sr-only" for="exampleInputPassword2">Password</label>
                                                 <input type="password" ng-model="HC.password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-                                                <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+                                                <div ng-if="HC.loginErrorMessage" class="help-block text-left has-error"><p>{{HC.loginErrorMessage}}</p></div>
+                                                <div class="help-block text-right"><a href="">Forgot the password ?</a></div>
                                             </div>
                                             <div class="form-group">
                                                 <button type="button" ng-click="HC.login(HC.username, HC.password)" class="btn btn-primary btn-block">Sign in</button>
@@ -74,7 +75,7 @@
                                         </form>
                                     </div>
                                     <div class="bottom text-center">
-                                        New here ? <a href="#"><b>Join Us</b></a>
+                                        New here ? <a ><b>Join Us</b></a>
                                     </div>
                                 </div>
                             </li>

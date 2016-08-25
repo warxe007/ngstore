@@ -14,10 +14,9 @@ function HeaderController($state, loggedUser, loginService) {
     function loginFn(username, password) {
         loginService.login(username, password)
             .then(function(success) {
-                console.log(success);
-                $state.reload();
+                processSuccessResponse(success);
             })
-            .catch(function(error) {
+            .catch(function(error, status) {
                 console.log(error);
             });
     }
@@ -30,5 +29,13 @@ function HeaderController($state, loggedUser, loginService) {
             .catch(function(error) {
                 console.log(error);
             });
+    }
+
+    function processSuccessResponse(successResponse) {
+        if(successResponse.data.success) {
+            $state.reload();
+        } else if(successResponse.data.error) {
+            headerController.loginErrorMessage = successResponse.data.error;
+        }
     }
 }

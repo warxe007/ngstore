@@ -1,0 +1,33 @@
+<div id="newProductModal">
+    <div class="modal-header">
+        <h3 class="modal-title">Edit Product</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal" name="editProductForm" id="editProductFormId">
+            <div class="form-group">
+                <label class="col-sm-5 control-label" for="productName">Product Name</label>
+                <div class="col-sm-7">
+                    <input id="productName" type="text" class="input-block-level modal-input" required ng-model="editProductController.product.name"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label" for="title">Description</label>
+                <div class="col-sm-7">
+                    <textarea id="productDescription" rows="10" cols="30" type="text" class="input-block-level"
+                              required ng-model="editProductController.product.description"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label" for="title">Price</label>
+                <div class="col-sm-7">
+                    <input id="productPrice" type="number" min="1" step="any" class="input-block-level"
+                           required ng-model="editProductController.product.price"/>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button id=editProductButton" class="btn btn-primary" type="button" ng-disabled="editProductForm.$invalid" ng-click="editProductController.editProduct(editProductController.product)">Update product</button>
+        <button id="cancelEditProductButton" class="btn btn-danger" type="button" ng-click="editProductController.cancel()">Cancel</button>
+    </div>
+</div>

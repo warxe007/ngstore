@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<div ng-app="nggrails">
+    <h1 class="page-header">Product List</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Image</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="product in PL.products track by $index">
+            <td><a ng-click="PL.openEditProductModal(product)">{{product.name}}</a></td>
+            <td>{{product.description}}</td>
+            <td>{{product.price|currency}}</td>
+            <td>Image not found</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>
+        <button type="button" class="btn btn-default" ng-click="PL.openNewProductModal()">Add Product</button>
+    </p>
+</div>
+</html>

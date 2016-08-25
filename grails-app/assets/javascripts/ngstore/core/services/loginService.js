@@ -28,21 +28,20 @@ function loginService($http, $q, $cacheFactory) {
         };
         $http.post('login/authenticate', '', config)
             .success(function(data, status, headers, config) {
-                deferred.resolve(data);
+                var res = {
+                    data: data,
+                    status: status
+                };
+                deferred.resolve(res);
             }).error(function(data, status, headers, config) {
-                deferred.reject(data);
-                console.log(data);
+                var res = {
+                    data: data,
+                    status: status
+                };
+                deferred.reject(res);
                 /*$rootScope.authenticationError = true;
                 Session.invalidate();*/
         });
-
-        /*$http({method: "POST", url: "login/authenticate" + {username: user, password: pass}})
-            .success(function(response) {
-                deferred.resolve(response);
-            })
-            .error(function(response) {
-                deferred.reject(response);
-            });*/
 
         return deferred.promise;
     }

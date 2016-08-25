@@ -31,6 +31,7 @@ function routes($stateProvider, $urlRouterProvider, $locationProvider) {
             url: '/',
             resolve: {
                 loggedUser: function(loginService) {
+                    console.log('in abstract');
                     return loginService.getLoggedUser();
                 }
             },
@@ -52,6 +53,11 @@ function routes($stateProvider, $urlRouterProvider, $locationProvider) {
         })
         .state('app.home', {
             url: 'home',
+            resolve: {
+                loggedUser: function() {
+                    console.log('in home');
+                }
+            },
             views: {
                 'content@': {
                     templateUrl: '/ngstore/core/home.html',
@@ -60,8 +66,38 @@ function routes($stateProvider, $urlRouterProvider, $locationProvider) {
                 }
             }
         })
-        .state('error', {
-            url: 'login/auth?login_error=1',
+        .state('app.menu', {
+            url: 'menu',
+            resolve: {
+                productResult : function (productService) {
+                    return productService.getProducts();
+                }
+            },
+            views: {
+                'content@': {
+                    templateUrl: '/ngstore/products/menu.html',
+                    controller: 'menuController',
+                    controllerAs: 'MC'
+                }
+            }
+        })
+        .state('app.productList', {
+            url: 'manage-products',
+            resolve: {
+                productResult : function (productService) {
+                    return productService.getProducts();
+                }
+            },
+            views: {
+                'content@': {
+                    templateUrl: '/ngstore/products/productList.html',
+                    controller: 'ProductListController',
+                    controllerAs: 'PL'
+                }
+            }
+        })
+        .state('app.error', {
+            url: 'error',
             views: {
                 'content': {
                     templateUrl: '/ngstore/layout/error.html',
