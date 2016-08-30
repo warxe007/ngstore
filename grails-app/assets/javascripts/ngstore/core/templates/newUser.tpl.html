@@ -7,34 +7,34 @@
             <div class="form-group">
                 <label class="col-sm-5 control-label" for="username">Username</label>
                 <div class="col-sm-7">
-                    <input id="username" type="text" class="input-block-level modal-input" required ng-model="newUserController.user.username"/>
+                    <input id="username" type="text" class="input-block-level modal-input" required ng-model="userController.user.username"/>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-5 control-label" for="password">Password</label>
                 <div class="col-sm-7">
-                    <input id="password" rows="10" cols="30" type="password" class="input-block-level"
+                    <input id="password" type="password" class="input-block-level"
                               required="true" ng-model="userController.user.password"></input>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-5 control-label" for="firstName">First Name</label>
                 <div class="col-sm-7">
-                    <input id="firstName" rows="10" cols="30" type="text" class="input-block-level"
+                    <input id="firstName" type="text" class="input-block-level"
                               required="true" ng-model="userController.user.firstName"></input>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-5 control-label" for="lastName">Last Name</label>
                 <div class="col-sm-7">
-                    <input id="lastName" rows="10" cols="30" type="lastName" class="input-block-level"
+                    <input id="lastName" type="lastName" class="input-block-level"
                               required="true" ng-model="userController.user.lastName"></input>
                 </div>
             </div>
         </form>
     </div>
     <div class="modal-footer">
-        <button id=saveNewUserButton" class="btn btn-primary" type="button" ng-disabled="newUserForm.$invalid" ng-click="userController.createNewUser(addProductController.user)">Create User</button>
+        <button id=saveNewUserButton" class="btn btn-primary" type="button" ng-disabled="newUserForm.$invalid" ng-click="userController.createNewUser(userController.user)">Create User</button>
         <button id="cancelNewUserButton" class="btn btn-danger" type="button" ng-click="userController.cancel()">Cancel</button>
     </div>
 </div>
