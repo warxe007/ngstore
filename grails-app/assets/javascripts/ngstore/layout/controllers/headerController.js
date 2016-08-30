@@ -4,12 +4,13 @@ angular
     .module("ngstore.layout")
     .controller("HeaderController", HeaderController);
 
-function HeaderController($state, loggedUser, loginService) {
+function HeaderController($state, loggedUser, loginService, userHelperService) {
     var headerController = this;
 
     headerController.loggedUser = loggedUser;
     headerController.login = loginFn;
     headerController.logout = logoutFn;
+    headerController.openNewUserModal = userHelperService.openNewUserModal;
 
     function loginFn(username, password) {
         loginService.login(username, password)
