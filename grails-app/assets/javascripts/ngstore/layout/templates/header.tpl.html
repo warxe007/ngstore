@@ -15,7 +15,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Order today<span class="sr-only">(current)</span></a></li>
+                <li><a href>Order today<span class="sr-only">(current)</span></a></li>
                 <li><a ui-sref="app.menu">Menu</a></li>
                 <li ng-if="HC.loggedUser.isSuperAdmin" class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -53,7 +53,7 @@
                                             <a class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
                                         </div>
                                         or
-                                        <form class="form" role="form" name="loginForm" accept-charset="UTF-8" id="login-nav">
+                                        <form class="form" role="form" name="loginForm" accept-charset="UTF-8" id="login-nav" ng-submit="HC.login(HC.username, HC.password)">
                                             <div class="form-group">
                                                 <label class="sr-only" for="exampleInputEmail2">Email address</label>
                                                 <input type="text" ng-model="HC.username" class="form-control" id="exampleInputEmail2" placeholder="Email address or Username" required>
@@ -65,7 +65,7 @@
                                                 <div class="help-block text-right"><a href="">Forgot the password ?</a></div>
                                             </div>
                                             <div class="form-group">
-                                                <button type="button" ng-click="HC.login(HC.username, HC.password)" class="btn btn-primary btn-block">Sign in</button>
+                                                <button type="submit" ng-click="HC.login(HC.username, HC.password)" class="btn btn-primary btn-block">Sign in</button>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
