@@ -25,6 +25,7 @@ class ProductController {
     @Secured(['ROLE_SUPER_ADMIN'])
     @Transactional
     def save(Product product) {
+        println product.productImage
         if (product == null) {
             transactionStatus.setRollbackOnly()
             render status: NOT_FOUND

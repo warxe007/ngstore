@@ -21,7 +21,7 @@ function AddProductController($state, $uibModalInstance, productService, toaster
                 $state.reload();
             })
             .catch(function(error) {
-                toasterService.error('There was an error trying to create this product.');
+                toasterService.error(error.message);
             });
     }
 

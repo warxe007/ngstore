@@ -5,29 +5,42 @@
     <div class="modal-body">
         <form class="form-horizontal" name="editProductForm" id="editProductFormId">
             <div class="form-group">
-                <label class="col-sm-5 control-label" for="productName">Product Name</label>
+                <label class="col-sm-3 control-label" for="productName">Product Name</label>
                 <div class="col-sm-7">
-                    <input id="productName" type="text" class="input-block-level modal-input" required ng-model="editProductController.product.name"/>
+                    <input id="productName" type="text" class="input-block-level form-control" required="true" ng-model="editProductController.product.name"/>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-5 control-label" for="title">Description</label>
+                <label class="col-sm-3 control-label" for="productDescription">Description</label>
                 <div class="col-sm-7">
-                    <textarea id="productDescription" rows="10" cols="30" type="text" class="input-block-level"
-                              required ng-model="editProductController.product.description"></textarea>
+                    <textarea id="productDescription" rows="10" cols="30" type="text" class="input-block-level form-control"
+                              required="true" ng-model="editProductController.product.description"></textarea>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-5 control-label" for="title">Price</label>
+                <label class="col-sm-3 control-label" for="productPrice">Price</label>
+                <div class="col-sm-3">
+                    <input id="productPrice" type="number" min="1" step="any" class="input-block-level form-control"
+                           required="true" ng-model="editProductController.product.price"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="productImage">Image</label>
                 <div class="col-sm-7">
-                    <input id="productPrice" type="number" min="1" step="any" class="input-block-level"
-                           required ng-model="editProductController.product.price"/>
+                    <input type="file" id="productImage" ngf-select ng-model="editProductController.product.productImage" name="file"
+                           accept="image/*" ngf-max-size="2MB" required
+                           ngf-model-invalid="errorFile">
+                    <i ng-show="myForm.file.$error.required">*required</i><br>
+                    <i ng-show="myForm.file.$error.maxSize">File too large
+                        {{errorFile.size / 1000000|number:1}}MB: max 2M</i>
+                    <img ng-show="myForm.file.$valid" ngf-thumbnail="editProductController.product.productImage" class="thumb">
+                    <button ng-click="editProductController.product.productImage = null" ng-show="editProductController.product.productImage">Remove</button>
                 </div>
             </div>
         </form>
     </div>
     <div class="modal-footer">
-        <button id=editProductButton" class="btn btn-primary" type="button" ng-disabled="editProductForm.$invalid" ng-click="editProductController.editProduct(editProductController.product)">Update product</button>
-        <button id="cancelEditProductButton" class="btn btn-danger" type="button" ng-click="editProductController.cancel()">Cancel</button>
+        <button id=saveNewProductButton" class="btn btn-primary" type="button" ng-disabled="newProductForm.$invalid" ng-click="editProductController.saveNewProduct(editProductController.product)">Edit product</button>
+        <button id="cancelNewProductButton" class="btn btn-danger" type="button" ng-click="editProductController.cancel()">Cancel</button>
     </div>
 </div>

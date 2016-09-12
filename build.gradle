@@ -120,6 +120,9 @@ bower {
     'angular-underscore-module'('1.0.2') {
         source 'angular-underscore-module.js' >> '/angular/'
     }
+    'ng-file-upload'('12.2.7') {
+
+    }
 }
 
 karma {

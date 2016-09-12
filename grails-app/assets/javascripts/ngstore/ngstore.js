@@ -8,6 +8,7 @@
 //= require /angular/angular-animate
 //= require /angularjs-toaster/toaster
 //= require /angular/ui-bootstrap-tpls
+//= require /ng-file-upload/ng-file-upload
 //= require /ngstore/core/ngstore.core
 //= require /ngstore/index/ngstore.index
 //= require /ngstore/layout/ngstore.layout
@@ -24,5 +25,6 @@ angular.module("ngstore", [
     'ui.bootstrap',
     'ngAnimate',
     'toaster',
-    'underscore'
+    'underscore',
+    'ngFileUpload'
 ]);

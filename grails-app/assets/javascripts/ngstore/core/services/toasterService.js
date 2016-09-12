@@ -23,7 +23,7 @@ function toasterService(toaster) {
     }
 
     function error(body) {
-        pop('error', body, false);
+        pop('error', body, true);
     }
 
     function warning(body) {

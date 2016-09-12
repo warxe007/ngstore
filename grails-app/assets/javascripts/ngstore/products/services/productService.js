@@ -33,6 +33,8 @@ function productService($http, $q) {
     function saveProduct(product) {
         var deferred = $q.defer();
 
+        console.log(product);
+
         $http.post('/product', product)
             .success(function(response) {
                 deferred.resolve(response);
