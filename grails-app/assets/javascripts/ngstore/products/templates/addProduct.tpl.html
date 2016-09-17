@@ -28,7 +28,7 @@
                 <label class="col-sm-3 control-label" for="productImage">Image</label>
                 <div class="col-sm-7">
                     <input type="file" id="productImage" ngf-select ng-model="addProductController.product.productImage" name="file"
-                           accept="image/*" ngf-max-size="2MB" required
+                           accept="image/*" ngf-max-size="2MB"
                            ngf-model-invalid="errorFile">
                     <i ng-show="myForm.file.$error.required">*required</i><br>
                     <i ng-show="myForm.file.$error.maxSize">File too large
