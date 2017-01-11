@@ -7,7 +7,7 @@ angular
     .module('ngstore.products')
     .factory('productService', productService);
 
-function productService($http, $q) {
+function productService($http, $q, productHelperService) {
     var factory = {
         getProducts: getProducts,
         saveProduct: saveProduct,
@@ -21,6 +21,7 @@ function productService($http, $q) {
 
         $http.get('/product')
             .success(function(response) {
+                _processImages(response);
                 deferred.resolve(response);
             })
             .error(function(response) {
@@ -57,5 +58,11 @@ function productService($http, $q) {
                 deferred.reject(response);
             });
         return deferred.promise;
+    }
+
+    function _processImages(products) {
+        angular.forEach(products, function(currentProduct) {
+            currentProduct.productImageBase64 = productHelperService.arrayBufferToBase64(currentProduct.productImage);
+        })
     }
 }

@@ -1,6 +1,7 @@
 package ngstore
 
 import grails.plugin.springsecurity.annotation.Secured
+import org.springframework.web.multipart.MultipartFile
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -25,7 +26,11 @@ class ProductController {
     @Secured(['ROLE_SUPER_ADMIN'])
     @Transactional
     def save(Product product) {
-        println product.productImage
+        /*request.fileNames.each {
+            fileKey ->
+                MultipartFile mfile = request.getFile(fileKey)
+                println mfile
+        }*/
         if (product == null) {
             transactionStatus.setRollbackOnly()
             render status: NOT_FOUND

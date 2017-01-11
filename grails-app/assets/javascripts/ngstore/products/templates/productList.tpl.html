@@ -16,7 +16,8 @@
             <td><a ng-click="PL.openEditProductModal(product)">{{product.name}}</a></td>
             <td>{{product.description}}</td>
             <td>{{product.price|currency}}</td>
-            <td>Image not found</td>
+            <td ng-if="product.productImageBase64"><img style="width: 250px; height: 150px" data-ng-src="data:image/jpg;base64,{{product.productImageBase64}}"></td>
+            <td ng-if="!product.productImageBase64"><img style="width: 250px; height: 150px" data-ng-src="../assets/no_image.png"></td>
         </tr>
         </tbody>
     </table>

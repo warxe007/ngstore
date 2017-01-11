@@ -8,7 +8,7 @@ angular
     .module("ngstore.products")
     .controller("EditProductController", EditProductController);
 
-function EditProductController($state, $uibModalInstance, productService, product, toasterService) {
+function EditProductController($state, $uibModalInstance, productService, product, toasterService, Upload) {
     var editProductController = this;
 
     editProductController.product = product;
@@ -16,6 +16,20 @@ function EditProductController($state, $uibModalInstance, productService, produc
     editProductController.cancel = cancel;
 
     function editProduct(product) {
+        /*Upload.upload({
+            url: '/product',
+            data: product
+        }).then(function (success) {
+            toasterService.clear('working');
+            toasterService.success(success.data.message);
+            $uibModalInstance.close(success);
+        }, function (error) {
+            toasterService.clear('working');
+            toasterService.error(error.errorMessage);
+        }, function (evt) {
+            //console.log('progress: ' + Math.min(100, parseInt(100.0 * evt.loaded / evt.total)));
+        });*/
+
         productService.updateProduct(product)
             .then(function(success){
                 toasterService.success('Product successfully updated.');
