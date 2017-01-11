@@ -7,7 +7,7 @@ angular
     .module('ngstore.products')
     .factory('menuService', menuService);
 
-function menuService($http, $q) {
+function menuService($http, $q, productService) {
     var factory = {
         getMenu: getMenu
     };
@@ -19,6 +19,7 @@ function menuService($http, $q) {
 
         $http.get('/menu')
             .success(function(response) {
+                productService.processImages(response.result.products)
                 deferred.resolve(response);
             })
             .error(function(response) {

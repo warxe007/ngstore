@@ -11,7 +11,8 @@ function productService($http, $q, productHelperService) {
     var factory = {
         getProducts: getProducts,
         saveProduct: saveProduct,
-        updateProduct: updateProduct
+        updateProduct: updateProduct,
+        processImages: processImages
     };
 
     return factory;
@@ -21,7 +22,7 @@ function productService($http, $q, productHelperService) {
 
         $http.get('/product')
             .success(function(response) {
-                _processImages(response);
+                processImages(response);
                 deferred.resolve(response);
             })
             .error(function(response) {
@@ -60,7 +61,7 @@ function productService($http, $q, productHelperService) {
         return deferred.promise;
     }
 
-    function _processImages(products) {
+    function processImages(products) {
         angular.forEach(products, function(currentProduct) {
             currentProduct.productImageBase64 = productHelperService.arrayBufferToBase64(currentProduct.productImage);
         })
